@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Happy Valentine's Day! ❤️</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Quicksand:wght@400;700&display=swap"
+    rel="stylesheet">
+</head>
+
+<body>
+  <!-- Moving Clouds Background -->
+  <div class="sky-container">
+    <div class="cloud c1">☁️<span class="heart-float">♥</span></div>
+    <div class="cloud c2">☁️<span class="heart-float">♥</span></div>
+    <div class="cloud c3">☁️<span class="heart-float">♥</span></div>
+    <div class="cloud c4">☁️<span class="heart-float">♥</span></div>
+    <div class="cloud c5">☁️<span class="heart-float">♥</span></div>
+    <div class="cloud c6">☁️<span class="heart-float">♥</span></div>
+  </div>
+
+  <!-- Main Content -->
+  <main>
+    <!-- Initial State: The Gift Heart -->
+    <div id="heart-container" class="center-content">
+      <div class="gift-heart">
+        <div class="heart"></div>
+        <div class="ribbon"></div>
+      </div>
+      <p class="instruction-text">Tap the heart 💝</p>
+    </div>
+
+    <!-- Revealed State: Message & Photo -->
+    <div id="message-container" class="hidden center-content">
+      <div class="photo-frame">
+        <!-- Placeholder image, user needs to replace or add file -->
+        <img src="https://raw.githubusercontent.com/Tryingtroy0/AdaValentine-site/main/ada.jpg"
+          alt="My Beautiful Valentine">
+      </div>
+      <div class="letter-content">
+        <h1>Happy Valentine’s Day babe. 🤍</h1>
+        <p>
+          Know that Yrald Leigh will always be here, even when you’re tired, stressed, or not okay.
+          And please remember this: you’re always beautiful in my eyes, no matter what.
+        </p>
+        <p>
+          I don’t care if someone else gives you flowers…
+          because I have mine haha. 🌹😌
+          So astig diba? Si Troy lang to char. 😭💘
+        </p>
+        <p>
+          Babe, I hope you feel better soon.
+          I want you to always feel loved, safe, and happy — because you deserve it.
+        </p>
+        <p class="signature">Mwaaa. 😘❤️</p>
+      </div>
+    </div>
+  </main>
+
+  <!-- Music Button -->
+  <button id="music-btn" class="floating-btn">
+    Play our song 🎶
+  </button>
+  <audio id="bg-music" loop>
+    <source src="https://raw.githubusercontent.com/Tryingtroy0/AdaValentine-site/main/valentinemusic.mp3"
+      type="audio/mpeg">
+  </audio>
+
+  <!-- Moving Roses Background -->
+  <div class="rose-footer"></div>
+
+  <!-- Moving Grass Footer -->
+  <div class="grass-footer"></div>
+
+  <script type="module" src="/script.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,394 @@
+/* Global Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    height: 100vh;
+    overflow: hidden;
+    /* Prevent scrolling */
+    background: linear-gradient(to bottom, #87CEEB 0%, #4facfe 100%);
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Moving Clouds & Hearts */
+.sky-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.cloud {
+    position: absolute;
+    font-size: 4rem;
+    opacity: 0.8;
+    animation: moveClouds linear infinite;
+    white-space: nowrap;
+}
+
+.heart-float {
+    color: #ff6b6b;
+    font-size: 1.5rem;
+    position: absolute;
+    top: -10px;
+    right: 10px;
+    animation: floatHeart 2s ease-in-out infinite alternate;
+}
+
+/* Cloud Positions & Durations */
+.c1 {
+    top: 10%;
+    left: -20%;
+    animation-duration: 25s;
+}
+
+.c2 {
+    top: 25%;
+    left: -10%;
+    animation-duration: 35s;
+    animation-delay: 5s;
+}
+
+.c3 {
+    top: 5%;
+    left: -15%;
+    animation-duration: 28s;
+    animation-delay: 10s;
+}
+
+.c4 {
+    top: 40%;
+    left: -25%;
+    animation-duration: 30s;
+    animation-delay: 2s;
+}
+
+.c5 {
+    top: 15%;
+    left: -10%;
+    animation-duration: 40s;
+    animation-delay: 15s;
+}
+
+.c6 {
+    top: 30%;
+    left: -30%;
+    animation-duration: 32s;
+    animation-delay: 8s;
+}
+
+@keyframes moveClouds {
+    0% {
+        transform: translateX(-10vw);
+    }
+
+    100% {
+        transform: translateX(110vw);
+    }
+}
+
+@keyframes floatHeart {
+    0% {
+        transform: translateY(0);
+    }
+
+    100% {
+        transform: translateY(-10px);
+    }
+}
+
+/* Main Content Area */
+main {
+    position: relative;
+    z-index: 10;
+    width: 90%;
+    max-width: 600px;
+    text-align: center;
+}
+
+/* Center Heart Gift */
+.center-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: all 0.5s ease;
+}
+
+.gift-heart {
+    position: relative;
+    width: 150px;
+    height: 150px;
+    cursor: pointer;
+    animation: pulse 1.5s infinite;
+    transition: transform 0.3s;
+}
+
+.gift-heart:hover {
+    transform: scale(1.1);
+}
+
+.heart {
+    background-color: #ff3333;
+    display: inline-block;
+    width: 100%;
+    height: 100%;
+    position: relative;
+    transform: rotate(-45deg);
+    box-shadow: 0 0 20px rgba(255, 51, 51, 0.6);
+}
+
+.heart::before,
+.heart::after {
+    content: "";
+    background-color: #ff3333;
+    border-radius: 50%;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+}
+
+.heart::before {
+    top: -50%;
+    left: 0;
+}
+
+.heart::after {
+    top: 0;
+    left: 50%;
+}
+
+.ribbon {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 130px;
+    height: 20px;
+    background: gold;
+    z-index: 2;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.ribbon::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(90deg);
+    width: 130px;
+    height: 20px;
+    background: gold;
+    border-radius: 5px;
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.05);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+.instruction-text {
+    margin-top: 2rem;
+    font-size: 1.5rem;
+    color: white;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+    font-weight: bold;
+    animation: fadeIn 2s ease-in;
+}
+
+/* Revealed Message Styling */
+.hidden {
+    display: none !important;
+}
+
+#message-container {
+    background: rgba(255, 255, 255, 0.95);
+    padding: 2rem;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    animation: popIn 0.8s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    max-height: 80vh;
+    overflow-y: auto;
+}
+
+.photo-frame img {
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 5px solid #ff6b6b;
+    box-shadow: 0 0 15px rgba(255, 107, 107, 0.5);
+    margin-bottom: 1.5rem;
+}
+
+.letter-content h1 {
+    color: #d63031;
+    font-family: 'Quicksand', sans-serif;
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+}
+
+.letter-content p {
+    color: #d63031;
+    line-height: 1.6;
+    margin-bottom: 1rem;
+    font-size: 1.1rem;
+}
+
+.signature {
+    font-weight: bold;
+    font-size: 1.3rem !important;
+    margin-top: 1.5rem;
+}
+
+@keyframes popIn {
+    0% {
+        opacity: 0;
+        transform: scale(0.5);
+    }
+
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+/* Music Button */
+.floating-btn {
+    position: fixed;
+    bottom: 80px;
+    /* Above grass */
+    right: 20px;
+    background: #ff6b6b;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 50px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    transition: transform 0.2s, background 0.2s;
+    z-index: 20;
+}
+
+.floating-btn:hover {
+    transform: scale(1.05);
+    background: #ff4757;
+}
+
+.floating-btn:active {
+    transform: scale(0.95);
+}
+
+/* Rose Footer */
+.rose-footer {
+    position: fixed;
+    bottom: 30px;
+    /* Slightly above grass to look like they are growing in it */
+    left: 0;
+    width: 100%;
+    height: 50px;
+    background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 50"><text y="40" font-size="40">🌹</text></svg>');
+    background-size: 60px 50px;
+    /* Spacing of roses */
+    background-repeat: repeat-x;
+    opacity: 0.9;
+    animation: moveRoses 25s linear infinite;
+    /* Slightly slower/different speed than grass for depth */
+    z-index: 4;
+    /* Behind grass (z-index 5) */
+}
+
+@keyframes moveRoses {
+    0% {
+        background-position: 0 0;
+    }
+
+    100% {
+        background-position: -1200px 0;
+    }
+}
+
+/* Grass Footer */
+.grass-footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 60px;
+    background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none"><path d="M0,0V46.29c47,0,47,22.5,94,22.5s47-22.5,94-22.5,47,22.5,94,22.5,47-22.5,94-22.5,47,22.5,94,22.5,47-22.5,94-22.5,47,22.5,94,22.5,47-22.5,94-22.5,47,22.5,94,22.5,47-22.5,94-22.5,47,22.5,94,22.5,47-22.5,94-22.5s47,22.5,94,22.5,47-22.5,94-22.5V0Z" fill="%2348dbfb" transform="scale(1,-1) translate(0,-120)" opacity="0"/><path d="M0,120h1200V80c-40,0-45-20-80-20s-40,20-80,20-45-20-80-20-40,20-80,20-45-20-80-20-40,20-80,20-45-20-80-20-40,20-80,20-45-20-80-20-40,20-80,20-45-20-80-20-40,20-80,20-45-20-80-20-40,20-80,20-45-20-80-20-40,20-80,20-45-20-80-20-40,20-80,20-45-20-80-20-40,20-80,20Z" fill="%232ecc71"/></svg>');
+    background-size: 1200px 100%;
+    background-repeat: repeat-x;
+    animation: moveGrass 20s linear infinite;
+    z-index: 5;
+}
+
+@keyframes moveGrass {
+    0% {
+        background-position: 0 0;
+    }
+
+    100% {
+        background-position: -1200px 0;
+    }
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+    .cloud {
+        font-size: 2.5rem;
+    }
+
+    .heart-float {
+        font-size: 1rem;
+    }
+
+    .gift-heart {
+        width: 120px;
+        height: 120px;
+    }
+
+    .ribbon,
+    .ribbon::before {
+        width: 100px;
+        height: 18px;
+    }
+
+    .letter-content h1 {
+        font-size: 1.5rem;
+    }
+
+    .letter-content p {
+        font-size: 1rem;
+    }
+}
